@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practice.userservice.dto.ResponseDto;
 import com.practice.userservice.entity.Customer;
 import com.practice.userservice.service.UserService;
 
@@ -24,7 +25,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/get/{userId}")
-	public Customer findById(@PathVariable long userId) {
+	public ResponseDto findById(@PathVariable long userId) {
 		return userService.findUserById(userId);
 	}
 
