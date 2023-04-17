@@ -27,7 +27,7 @@ public class UserService {
 		Customer user = userRepository.findById(id).get();
 		CustomerDto customerDto = copyDetails(user);
 		responseDto.setCustomer(customerDto);
-		ResponseEntity<DepartmentDto> departmentDto= restTemplate.getForEntity("http://localhost:9081/department/get/"+user.getUserDepartmentId(), DepartmentDto.class);
+		ResponseEntity<DepartmentDto> departmentDto= restTemplate.getForEntity("http://DEPARTMENT-SERVICE/department/get/"+user.getUserDepartmentId(), DepartmentDto.class);
 		responseDto.setDepartment(departmentDto.getBody());	
 		return responseDto;
 	}
